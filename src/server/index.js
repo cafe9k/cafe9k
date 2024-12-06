@@ -3,6 +3,8 @@ const EXPRESS = require('express')
 const OCASTWalker = require('../ast/OCASTWalker')
 
 const app = EXPRESS()
+const PORT = process.env.PORT || 3000;  
+
 app.use(EXPRESS.json())
 // 静态站点
 app.use('/',EXPRESS.static(PATH.join(__dirname,'html')))
@@ -24,9 +26,6 @@ app.use('/convertCode',EXPRESS.urlencoded({ extended: false }),(req,res)=>{
             status:1,
         })
     }
-   
-
 })
 
-const port = 8765
-app.listen(port,() => console.log(`Example app listening on port ${port}!`))
+app.listen(port,() => console.log(`App listening on port ${PORT}!`))
