@@ -302,7 +302,7 @@
                     $('#jsTextarea').val(code + "\n\n\n\n");  
                 }  
 
-                if (!$('#jsErrorTips').is(":visible") && data['warnings'].length) {  
+                if (!$('#jsErrorTips').is(":visible") && data['warnings'] && data['warnings'].length) {  
                     var warningCtn = '';  
                     var space = '';  
                     for (var i = 0; i < data['warnings'].length; i++) {  
