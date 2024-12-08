@@ -19,4 +19,4 @@ sudo sh start_local.sh
 
 
 
-浏览器打开 http://localhost:8765/
+浏览器打开 http://localhost:3000
