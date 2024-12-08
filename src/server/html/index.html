@@ -1,333 +1,103 @@
-<html>  
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cafe工具集</title>
+    <meta name="description" content="牛马工具集">
+    <link rel="stylesheet" href="/Public/css/bootstrap.min.css?v=1.2" />
+    <link rel="stylesheet" href="/Public/css/main.css" />
+    <link rel="shortcut icon" href="/Public/img/favicon.ico" type="image/x-icon" />
+    <style>
+        .main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-<head>  
-    <meta charset="utf-8">  
-    <title>MangoFix代码转换器</title>  
-    <meta name="description" content="MangoFix代码转换器 - 一个快速将Objective-C代码转换为Mango热修复代码的在线工具。">  
-    <meta name="keywords" content="热更新,热补丁,热修复,hotfix,动态更新">  
-    <link rel="stylesheet" href="/Public/css/bootstrap.min.css?v=1.2" />  
-    <link rel="stylesheet" href="/Public/css/main.css" />  
-    <link rel="shortcut icon" href="/Public/img/favicon.ico" type="image/x-icon" />  
-    <style>  
-        .main {  
-            clear: both;  
-            background-color: #f4f7f7;  
-            padding: 20px;  
-        }  
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-        .header {  
-            text-align: center;  
-            margin-bottom: 20px;  
-        }  
+        .header h1 {
+            font-size: 36px;
+            color: #212529;
+            margin-bottom: 20px;
+        }
 
-        .header h1 {  
-            font-size: 24px;  
-            color: #333;  
-        }  
+        .header p {
+            font-size: 18px;
+            color: #6c757d;
+        }
 
-        .header p {  
-            font-size: 16px;  
-            color: #666;  
-            max-width: 800px;  
-            margin: 0 auto;  
-        }  
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
 
-        .textarea-ctn {  
-            padding-top: 10px;  
-            max-width: 1300px;  
-            margin: 0 auto;  
-        }  
+        .tool-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
 
-        h2 {  
-            display: block;  
-            height: 30px;  
-            position: absolute;  
-            top: -9px;  
-            padding: 0;  
-            margin: 0;  
-            text-indent: -10000px;  
-            opacity: .3;  
-        }  
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
 
-        h2.title-oc {  
-            background-image: url(/Public/img/oc.png);  
-            width: 140px;  
-            background-size: 140px 30px;  
-            left: 3.5%;  
-        }  
+        .tool-card h3 {
+            color: #0d6efd;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
 
-        h2.title-js {  
-            width: 130px;  
-            background-size: 130px 30px;  
-            right: 3.5%;  
-            background-image: url(/Public/img/js.png);  
-        }  
+        .tool-card p {
+            color: #6c757d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
 
-        .item {  
-            width: 50%;  
-            float: left;  
-            height: 400px;  
-            position: relative;  
-        }  
+        .tool-card a {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #0d6efd;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
 
-        .item textarea {  
-            position: absolute;  
-            width: 95%;  
-            height: 380px;  
-            margin: 30px auto 0px auto;  
-            border: none;  
-            overflow: scroll;  
-            outline: none;  
-            padding: 8px;  
-            font-size: 13px;  
-            line-height: 1.5em;  
-        }  
+        .tool-card a:hover {
+            background: #0b5ed7;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cafe工具集</h1>
+        <p>牛马互助</p>
+    </div>
 
-        #objcTextarea {  
-            left: 3.5%;  
-        }  
+    <div class="main">
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3>代码转换器</h3>
+                <p>快速将Objective-C代码转换为Mango热修复代码的在线工具</p>
+                <a href="/converter">立即使用</a>
+            </div>
+            <!-- 未来可以在这里添加更多工具卡片 -->
+        </div>
+    </div>
 
-        #jsTextarea {  
-            left: 1.5%;  
-        }  
-
-        #convertBtn {  
-            text-decoration: none;  
-            color: white;  
-            border-color: #16a085;  
-            background-color: #16a085;  
-            border: 1px solid;  
-            border-radius: 17px;  
-            font-size: 14px;  
-            box-sizing: border-box;  
-            line-height: 18px;  
-            margin: 0 auto;  
-            padding: 12px 50px;  
-            display: block;  
-            width: 150px;  
-            transition: background-color 0.3s;  
-        }  
-
-        #convertBtn:hover {  
-            background-color: #2dbca0;  
-        }  
-
-        .action {  
-            clear: both;  
-            text-align: center;  
-            padding: 0 0 30px 0;  
-        }  
-
-        .textarea-tips {  
-            position: absolute;  
-            bottom: 10px;  
-            left: 1.5%;  
-            width: 95%;  
-            padding: 8px 0;  
-            overflow-y: scroll;  
-        }  
-
-        .textarea-tips p {  
-            font-size: 13px;  
-            margin: 0;  
-            padding: 3px 15px;  
-        }  
-
-        #ocErrorTips,  
-        #ocWarningTips {  
-            left: 3.5%;  
-        }  
-
-        .error-tips {  
-            color: #ac2b2b;  
-            background: #ffefef;  
-            display: none;  
-        }  
-
-        .warning-tips {  
-            color: #857d23;  
-            background: #fefce3;  
-            display: none;  
-        }  
-
-        .textarea-tips .close-btn {  
-            position: absolute;  
-            right: 10px;  
-            top: 10px;  
-            background: #000;  
-            font-size: 12px;  
-            width: 20px;  
-            height: 20px;  
-            text-align: center;  
-            line-height: 20px;  
-            border-radius: 10px;  
-            color: white;  
-            opacity: 0.2;  
-        }  
-
-        .loading {  
-            text-align: center;  
-            height: 25px;  
-            clear: both;  
-        }  
-
-        .loading img {  
-            display: none;  
-        }  
-    </style>  
-</head>  
-
-<body>  
-    <div class="header">  
-        <h1>MangoFix代码转换器</h1>  
-        <p>快速将Objective-C代码转换为<a href="https://github.com/YPLiang19/Mango">Mango</a>的在线工具</p>  
-        <a href="mailto:qingqing.zhang@trip.com">*邮件联系我们</a>   
-        
-      </div>  
-    <div class="main">  
-        <div class="textarea-ctn">  
-            <div class="item" id="objcItem">  
-                <h2 class="title-oc">OC</h2>  
-                <textarea id="objcTextarea" wrap="off"></textarea>  
-                <div class="textarea-tips error-tips" id="ocErrorTips">  
-                    <div class="ctn"></div>  
-                    <a href="javascript:void(0);" class="close-btn">X</a>  
-                </div>  
-                <div class="textarea-tips warning-tips" id="ocWarningTips">  
-                    <div class="ctn"></div>  
-                    <a href="javascript:void(0);" class="close-btn">X</a>  
-                </div>  
-            </div>  
-            <div class="item" id="jsItem">  
-                <h2 class="title-js">JS</h2>  
-                <textarea id="jsTextarea" wrap="off"></textarea>  
-                <div class="textarea-tips error-tips" id="jsErrorTips">  
-                    <div class="ctn"></div>  
-                    <a href="javascript:void(0);" class="close-btn">X</a>  
-                </div>  
-                <div class="textarea-tips warning-tips" id="jsWarningTips">  
-                    <div class="ctn"></div>  
-                    <a href="javascript:void(0);" class="close-btn">X</a>  
-                </div>  
-            </div>  
-        </div>  
-        <div class="loading"><img src="/Public/img/loading.gif" /></div>  
-        <div class="action">  
-            <a href="javascript:void(0)" id="convertBtn">转换</a>  
-        </div>  
-
-        <div class="clear"></div>  
-        <div id="fill"></div>  
-    </div>  
-
-    <script src="/Public/js/jquery-1.11.3.min.js"></script>  
-    <script type="text/javascript">  
-        $('[data-toggle="tooltip"]').tooltip()  
-
-        var fillPadding = function () {  
-            $('#fill').height($('#fill').height() + window.innerHeight - ($('.main').offset().top + $('.main').height() + $('.ft').height()))  
-        }  
-        $(window).resize(fillPadding);  
-        fillPadding();  
-        $('.ft').show();  
-    </script>  
-
-    <script type='text/javascript'>  
-        (function (i, s, o, g, r, a, m) {  
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {  
-                (i[r].q = i[r].q || []).push(arguments)  
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),  
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)  
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');  
-
-        ga('create', 'UA-1895639-10', 'auto');  
-        ga('send', 'pageview');  
-    </script>  
-
-    <script>  
-        var sampleScript = [  
-            '@implementation SampleClass',  
-            '- (void)requestUrl:(NSString *)url param:(NSDictionary *)dict callback:(JPCallback)callback {',  
-            '    [super requestUrl:url param:dict callback:callback];',  
-            '    JPRequest *obj = [[JPRequest alloc] initWithUrl:url param:dict];',  
-            '    obj.successBlock = ^(id data, NSError *err) {',  
-            '        NSString *content = [JPParser parseData:data];',  
-            '        [self.dataSource refresh];',  
-            '        self.handleRequestSuccess(@{',  
-            '            @"content": content',  
-            '        });',  
-            '    };',  
-            '}',  
-            '@end',  
-        ].join('\n');  
-        $('#objcTextarea').val(sampleScript);  
-
-        $('#convertBtn').click(function () {  
-            var code = $('#objcTextarea').val();  
-            if (code.split('\n').length > 1000) {  
-                $('#ocErrorTips').show();  
-                $('#ocErrorTips .ctn').html('<p>超过限制，转换内容支持1000行以下。</p>')  
-                return;  
-            }  
-            $('.loading img').show();  
-
-            $.post("/convertCode", { code: code }, function (data) {  
-                $('#ocErrorTips').hide();  
-                $('#ocWarningTips').hide();  
-                $('#jsErrorTips').hide();  
-                $('#jsWarningTips').hide();  
-                $('.loading img').hide();  
-
-                var code = data['code'];  
-                $('#jsTextarea').val(code);  
-
-                if (data['errors'].length) {  
-                    var errCtn = '';  
-                    for (var i = 0; i < data['errors'].length; i++) {  
-                        errCtn += '<p>' + data['errors'][i] + '</p>';  
-                    }  
-                    $('#ocErrorTips .ctn').html(errCtn)  
-                    $('#ocErrorTips').show();  
-                    $('#ocWarningTips').hide();  
-                }  
-
-                var uglifyCode;  
-                try {  
-
-                } catch (e) {  
-                    var lines = data['code'].split('\n');  
-                    $('#jsErrorTips .ctn').html('<p>语法错误:' + e.message + '</p>' + '<p>line: ' + e.line + ' ' + lines[e.line - 1] + '</p>')  
-                    $('#jsErrorTips').show();  
-                    $('#jsWarningTips').hide();  
-                    $('#jsTextarea').val(code + "\n\n\n\n");  
-                }  
-
-                if (!$('#jsErrorTips').is(":visible") && data['warnings'] && data['warnings'].length) {  
-                    var warningCtn = '';  
-                    var space = '';  
-                    for (var i = 0; i < data['warnings'].length; i++) {  
-                        warningCtn += '<p>' + data['warnings'][i] + '</p>';  
-                        space += '\n\n\n'  
-                    }  
-                    $('#jsWarningTips .ctn').html(warningCtn)  
-                    $('#jsWarningTips').show();  
-
-                    $('#jsTextarea').val(uglifyCode + space);  
-                }  
-            });  
-        })  
-
-        $('.close-btn').click(function () {  
-            $(this).parent().hide();  
-        })  
-
-        function uglify(code) {  
-            var ast = parse(code, { strict: false });  
-            ast.figure_out_scope();  
-            code = ast.print_to_string({ beautify: true });  
-            return code;  
-        }  
-    </script>  
-</body>  
-
+    <script src="/Public/js/jquery-1.11.3.min.js"></script>
+</body>
 </html>
