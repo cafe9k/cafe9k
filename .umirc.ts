@@ -7,7 +7,7 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: '@umijs/max',
+    title: 'Cafe工具集',
   },
   routes: [
     {
@@ -20,14 +20,9 @@ export default defineConfig({
       component: './Home',
     },
     {
-      name: '权限演示',
-      path: '/access',
-      component: './Access',
-    },
-    {
-      name: ' CRUD 示例',
-      path: '/table',
-      component: './Table',
+      name: 'MangoFix转换器',
+      path: '/converter',
+      component: './Converter',
     },
   ],
   npmClient: 'npm',
