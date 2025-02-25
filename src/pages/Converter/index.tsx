@@ -34,7 +34,7 @@ const ConverterPage: React.FC = () => {
 
     setLoading(true);
     try {
-      const response = await fetch('https://ackjs.com/convertCode', {
+      const response = await fetch('https://ackjs.vercel.app/convertCode', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
