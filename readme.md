@@ -1,3 +1,3 @@
 # README
 
-https://cafe9k-mocha.vercel.app/converter
+https://cafe9k-mocha.vercel.app
